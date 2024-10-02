@@ -5,7 +5,7 @@ include "includes/config.inc.php";
 
 <html lang="en">
     <head>
-        <title>F1 Dashboard</title>
+        <title>2022 Season</title>
         <link rel="stylesheet" type="text/css" href= "css/generalstyle.css">
         <meta charset="utf-8">
         <meta name="description" content="Assignment #1 for COMP3512 at Mount Royal University">
@@ -18,24 +18,10 @@ include "includes/config.inc.php";
         <?php createHeader() ?>
         <main id="main">
             <article>
-                <h2><b>Description</b></h2>
-                <p>
-                    This site provides you with the information about the 2022 F1 season. You can browse the season's race results, constructor details, as well as the driver statistics. 
-                </p>
-                <p>    
-                    This project was created by Ishan Ishan and Jashan Pal Singh as their Assignment 1 studying COMP3512 at the Mount Royal University taught by Professor Randy Conolly.
-                </p>
-                <p>
-                    You can access our GitHub repository for this project below
-                </p>
-                <br>
-                <br>
-                <a href="https://github.com/JashanPalSingh/COMP3512-Assignment1" id="viewrepo" target="_blank"> VIEW REPO</a>
-                <!-- <br><br><br><br> -->
-                <a href="browse.php" id="browsepage"> Browse 2022 Season</a>
+                <h2><b>2022 Races</b></h2>
             </article>
             <article>
-                display pics here
+                Select a race
             </article>
         </main>
     </body>
