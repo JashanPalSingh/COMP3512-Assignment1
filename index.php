@@ -28,6 +28,8 @@ include "includes/config.inc.php";
                 <p>
                     You can access our GitHub repository for this project below
                 </p>
+                <br>
+                <br>
                 <a href="https://github.com/JashanPalSingh/COMP3512-Assignment1" id="viewrepo"> VIEW REPO</a>
             </article>
             <article>
