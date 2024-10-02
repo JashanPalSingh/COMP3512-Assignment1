@@ -30,12 +30,14 @@ include "includes/config.inc.php";
                 </p>
                 <br>
                 <br>
-                <a href="https://github.com/JashanPalSingh/COMP3512-Assignment1" id="viewrepo" target="_blank"> VIEW REPO</a>
-                <!-- <br><br><br><br> -->
+                <div id="Homepagelinks">
+                <a href="https://github.com/JashanPalSingh/COMP3512-Assignment1" id="viewrepo" target="_blank"> View Repo</a>
+                <br><br><br><br>
                 <a href="browse.php" id="browsepage"> Browse 2022 Season</a>
+                </div>
             </article>
-            <article>
-                display pics here
+            <article id="show">
+                <img src="css/Background.PNG" width="100%"/> <!-- image source: https://wallpapercave.com/w/wp12663282 -->
             </article>
         </main>
     </body>
