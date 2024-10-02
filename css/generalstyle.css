@@ -45,3 +45,16 @@ nav ul li{
     display: grid;
     grid-template-columns: 30% 70%;
 }
+
+p{
+    font-family: "Urbanist", sans-serif;
+    font-style: normal;
+}
+
+#viewrepo{
+    background-color: red;
+    margin: 10px;
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+}
