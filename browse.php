@@ -7,6 +7,7 @@ include "includes/config.inc.php";
     <head>
         <title>2022 Season</title>
         <link rel="stylesheet" type="text/css" href= "css/generalstyle.css">
+        <link rel="stylesheet" type="text/css" href= "css/otherstyle.css">
         <meta charset="utf-8">
         <meta name="description" content="Assignment #1 for COMP3512 at Mount Royal University">
         <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -1,0 +1,10 @@
+body{
+    background-image: url(bg2.jpg); /*Image source: https://wallpapers.com/hamilton-f1 */
+    background-size: cover;
+}
+
+article{
+    margin: 20px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.5);
+}
