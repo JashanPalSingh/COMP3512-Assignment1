@@ -75,3 +75,11 @@ p{
     background-color: white;
     color: black;
 }
+
+#resultsButton {
+    font-family: "Urbanist", sans-serif;
+    font-style: normal;
+    color: white;
+    margin: 10px;
+    background-color: rgba(0,0,0,0.5);
+}

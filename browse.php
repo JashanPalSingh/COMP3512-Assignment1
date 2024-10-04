@@ -25,9 +25,22 @@ include "api/circuits.php";
                     <?php
                         $data = getCircuits();
                         
+                        echo "<table>";
+
+                        echo "<tr>"; 
+                        echo "<th>Rnd</th>"; 
+                        echo "<th>Circuit</th>"; 
+                        echo "</tr>";
+                                                 
                         foreach($data as $row){
-                            echo "$row[0], $row[1]";
-                        };
+                            echo "<tr>";
+                            echo "<td>{$row[0]}</td>";
+                            echo "<td>{$row[1]}</td>";
+                            echo "<td><button id='resultsButton'>Results</button></td>";                            
+                            echo "</tr>";
+                        };           
+
+                        echo "</table>";
 
                     ?>
                 </p>
