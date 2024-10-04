@@ -1,7 +1,6 @@
 body{
     background-image: url(bg2.jpg); /*Image source: https://wallpapers.com/hamilton-f1 */
-    background-repeat: no-repeat;
-    background-size: 100vh;
+    background-size: cover;
 }
 
 article{
