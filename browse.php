@@ -1,5 +1,6 @@
 <?php
 include "includes/header.inc.php";
+include "api/circuits.php";
 
 ?>
 
@@ -20,6 +21,16 @@ include "includes/header.inc.php";
         <main id="main">
             <article>
                 <h2><b>2022 Races</b></h2>
+                <p>
+                    <?php
+                        $data = getCircuits();
+                        
+                        foreach($data as $row){
+                            echo "$row[0], $row[1]";
+                        };
+
+                    ?>
+                </p>
             </article>
             <article>
                 Select a race
