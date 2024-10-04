@@ -8,3 +8,16 @@ article{
     padding: 10px;
     background-color: rgba(0,0,0,0.5);
 }
+#CircuitTable{
+    width: 100%;
+}
+
+.resultsButton{
+    background-color: red;
+    border: none;
+    padding: 5px;
+}
+.resultsButton:hover{
+    background-color: white;
+    color: black;
+}

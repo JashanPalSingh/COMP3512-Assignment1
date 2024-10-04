@@ -24,8 +24,8 @@ include "api/circuits.php";
                 <p>
                     <?php
                         $data = getCircuits();
-                        
-                        echo "<table>";
+
+                        echo "<table id='CircuitTable'>";
 
                         echo "<tr>"; 
                         echo "<th>Rnd</th>"; 
@@ -36,7 +36,7 @@ include "api/circuits.php";
                             echo "<tr>";
                             echo "<td>{$row[0]}</td>";
                             echo "<td>{$row[1]}</td>";
-                            echo "<td><button id='resultsButton'>Results</button></td>";                            
+                            echo "<td><button class='resultsButton'>Results</button></td>";                            
                             echo "</tr>";
                         };           
 
