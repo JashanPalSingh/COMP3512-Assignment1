@@ -1,6 +1,6 @@
 <?php
 include "includes/header.inc.php";
-include "api/circuits.php";
+
 
 ?>
 
@@ -23,20 +23,21 @@ include "api/circuits.php";
                 <h2><b>2022 Races</b></h2>
                 <p>
                     <?php
-                        $data = getCircuits();
+                        // $jsonData = file_get_contents("api/races.php");
+                        // $data = json_decode($jsonData);
 
-                        echo "<table id='CircuitTable'>";
+                        echo "<table id='RaceTable'>";
 
                         echo "<tr>"; 
                         echo "<th>Rnd</th>"; 
                         echo "<th>Circuit</th>"; 
                         echo "</tr>";
                                                  
-                        foreach($data as $row){
+                        foreach ($data as $row){
                             echo "<tr>";
-                            echo "<td>{$row[0]}</td>";
-                            echo "<td>{$row[1]}</td>";
-                            echo "<td><button class='resultsButton'>Results</button></td>";                            
+                            echo "<td>{$row['round']}</td>";
+                            echo "<td>{$row['name']}</td>";
+                            echo "<td><form action='http://localhost/jsing785/browse.php?' method='GET'><button type='submit' class='resultsButton' name='raceId' value={$row['raceId']}>Results</button></form></td>";                            
                             echo "</tr>";
                         };           
 
