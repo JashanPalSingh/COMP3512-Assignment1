@@ -16,7 +16,7 @@ try{
         $statement -> bindValue(1, $_GET['raceId']);
         $statement -> execute();
     }
-    echo json_encode($statement -> fetchAll(PDO::FETCH_ASSOC));
+    echo json_encode($statement -> fetchAll(PDO::FETCH_ASSOC), JSON_NUMERIC_CHECK);
     $pdo = null;
 }catch (PDOException $e){
     echo '{"error": "API did not work: Check your querystring."}';
