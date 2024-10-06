@@ -37,7 +37,7 @@ include "includes/header.inc.php";
                             echo "<tr>";
                             echo "<td>{$row['round']}</td>";
                             echo "<td>{$row['name']}</td>";
-                            echo "<td><form action='http://localhost/jsing785/browse.php?' method='GET'><button type='submit' class='resultsButton' name='raceId' value={$row['raceId']}>Results</button></form></td>";                            
+                            echo "<td><form action='http://localhost/iisha595/browse.php?' method='GET'><button type='submit' class='resultsButton' name='raceId' value={$row['raceId']}>Results</button></form></td>";                            
                             echo "</tr>";
                         };           
 
