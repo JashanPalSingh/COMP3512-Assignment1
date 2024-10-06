@@ -23,8 +23,8 @@ include "includes/header.inc.php";
                 <h2><b>2022 Races</b></h2>
                 <p>
                     <?php
-                        //  $jsonData = file_get_contents("api/races.php");
-                        //  $data = json_decode($jsonData);
+                        $jsonData = file_get_contents("api/races.php");
+                        $data = json_decode($jsonData);
 
                         echo "<table id='RaceTable'>";
 
