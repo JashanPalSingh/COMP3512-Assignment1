@@ -1,5 +1,32 @@
 <?php
 include "includes/header.inc.php";
+include "includes/phpconfig.inc.php";
+
+function getRaces($SQL){
+    try{
+        $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
+        $statement = $pdo -> prepare($SQL);
+        $statement -> execute();
+        $pdo = null;
+        return $statement -> fetchAll();
+    } catch (PDOException $e){
+        echo "error : Function did not work";
+    }
+}
+
+
+function getRace($SQL, $param){
+    try{
+        $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
+        $statement = $pdo -> prepare($SQL);
+        $statement -> bindValue(1, $param);
+        $statement -> execute();
+        $pdo = null;
+        return $statement -> fetchAll();
+    } catch (PDOException $e){
+        echo "error : Function did not work";
+    }
+}
 
 
 ?>
@@ -23,9 +50,7 @@ include "includes/header.inc.php";
                 <h2><b>2022 Races</b></h2>
                 <p>
                     <?php
-                        // $jsonData = file_get_contents("api/races.php");
-                        // $data = json_decode($jsonData);
-
+                        $data = getRaces('SELECT `round`, `name`, raceId FROM races WHERE races.`year` = 2022 ORDER BY `round`;');
                         echo "<table id='RaceTable'>";
 
                         echo "<tr>"; 
@@ -37,7 +62,7 @@ include "includes/header.inc.php";
                             echo "<tr>";
                             echo "<td>{$row['round']}</td>";
                             echo "<td>{$row['name']}</td>";
-                            echo "<td><form action='http://localhost/iisha595/browse.php?' method='GET'><button type='submit' class='resultsButton' name='raceId' value={$row['raceId']}>Results</button></form></td>";                            
+                            echo "<td><form action='http://localhost/jsing785/browse.php?' method='GET'><button type='submit' class='resultsButton' name='raceId' value={$row['raceId']}>Results</button></form></td>";                            
                             echo "</tr>";
                         };           
 
@@ -47,7 +72,15 @@ include "includes/header.inc.php";
                 </p>
             </article>
             <article>
-                Select a race
+                <?php
+                if (isset($_GET['raceId'])){
+                    $info = getRace('SELECT ra.`round`, ra.`name`, ra.raceId, ci.name, ci.location, ci.country, ra.date, ra.url 
+                                    FROM races AS ra
+                                    JOIN circuits AS ci
+                                    ON ra.circuitId = ci.circuitId
+                                    WHERE  ra.raceId =?;', $_GET['raceId']);
+                    }
+                ?>
             </article>
         </main>
     </body>
