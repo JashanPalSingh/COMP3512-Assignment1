@@ -15,6 +15,7 @@ try{
     ORDER BY q.position ASC;';
 
     $statement = $pdo -> prepare($SQL);
+    $statement -> bindValue(1, $_GET['ref']);
     $statement -> execute();
     echo json_encode($statement -> fetchAll(PDO::FETCH_ASSOC));
     $pdo = null;
