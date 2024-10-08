@@ -101,7 +101,7 @@ function getRace($SQL, $param){
                         JOIN races ON q.raceId = races.raceId WHERE races.raceId =? ORDER BY q.position;" ,$_GET['raceId']);
 
                         echo "<h1><b>Qualifying</b></h1>";
-                        echo "<table id='qualifyingTable'>";
+                        echo "<table class='interactiveTable'>";
                         echo "<tr>";
                         echo "<th>Pos</th>";
                         echo "<th>Driver</th>";
@@ -137,7 +137,7 @@ function getRace($SQL, $param){
                     echo "<h2><b>Second: <a href=''>{$results[1]['forename']} {$results[1]['surname']}</a></b></h2>";
                     echo "<h2><b>Third: <a href=''>{$results[2]['forename']} {$results[2]['surname']}</a></b></h2>";
 
-                    echo "<table id='qualifyingTable'>";
+                    echo "<table class='interactiveTable'>";
                         echo "<tr>";
                         echo "<th>Pos</th>";
                         echo "<th>Driver</th>";
