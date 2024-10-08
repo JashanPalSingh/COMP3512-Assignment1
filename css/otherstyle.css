@@ -13,6 +13,7 @@ article{
 }
 
 .resultsButton{
+    text-decoration: none;
     color: white;
     background-color: red;
     position: relative;
@@ -27,4 +28,25 @@ article{
 
 #RaceTable td{
     justify-content:right;
+}
+
+.decoratedlink{
+    background-color: red;
+    margin: 10px;
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+}
+.decoratedlink:hover{
+    background-color: white;
+    color: black;
+}
+
+p{
+    font-family: "Urbanist", sans-serif;
+    font-style: normal;
+}
+
+#qualifyingTable{
+    width: 100%;
 }

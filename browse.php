@@ -71,16 +71,94 @@ function getRace($SQL, $param){
                     ?>
                 </p>
             </article>
-            <article>
+            <article id='browseResults'>
                 <?php
                 if (isset($_GET['raceId'])){
-                    $info = getRace('SELECT ra.`round`, ra.`name`, ra.raceId, ci.name, ci.location, ci.country, ra.date, ra.url 
+                    $info = getRace('SELECT ra.`round`, ra.`name` AS raceName, ra.raceId, ci.name AS circuitName, ci.location, ci.country, ra.date, ra.url 
                                     FROM races AS ra
                                     JOIN circuits AS ci
                                     ON ra.circuitId = ci.circuitId
                                     WHERE  ra.raceId =?;', $_GET['raceId']);
+                    echo "<h1><b>{$info[0]['raceName']}</b></h1>";
+                    echo "<p>";
+                    echo "<h3><b>Round:</b> {$info[0]['round']}<br></h3>";
+                    echo "<h3><b>Circuit:</b> {$info[0]['circuitName']}<br></h3>";
+                    echo "<h3><b>Location:</b> {$info[0]['location']}<br></h3>";
+                    echo "<h3><b>Country:</b> {$info[0]['country']}<br></h3>";
+                    echo "<h3><b>Date:</b> {$info[0]['date']}<br></h3>";
+                    echo "<br>";
+                    echo '<a href="'.$info[0]['url'].'" class="decoratedlink"> VIEW RACE</a>';
+                    echo "</p>";
+
                     }
                 ?>
+                <div id="Qualifying">
+                    <p>
+                    <?php
+                    if (isset($_GET['raceId'])){
+                        $qualifying = getRace("SELECT q.position, d.forename, d.surname, d.driverId, c.name, c.constructorId, q.q1, q.q2, q.q3 FROM qualifying AS q 
+                        JOIN drivers AS d ON q.driverId = d.driverId JOIN constructors AS c ON q.constructorId = c.constructorId 
+                        JOIN races ON q.raceId = races.raceId WHERE races.raceId =? ORDER BY q.position;" ,$_GET['raceId']);
+
+                        echo "<h1><b>Qualifying</b></h1>";
+                        echo "<table id='qualifyingTable'>";
+                        echo "<tr>";
+                        echo "<th>Pos</th>";
+                        echo "<th>Driver</th>";
+                        echo "<th>Constructor</th>";
+                        echo "<th>Q1</th>";
+                        echo "<th>Q2</th>";
+                        echo "<th>Q3</th>";
+                        echo "</tr>";
+                        foreach ($qualifying as $row){
+                            echo "<tr>";
+                            echo "<td>{$row['position']}</td>";
+                            echo "<td><a href=''>{$row['forename']} {$row['surname']}</a></td>";
+                            echo "<td><a href=''>{$row['name']}</a></td>";
+                            echo "<td>{$row['q1']}</td>";
+                            echo "<td>{$row['q2']}</td>";
+                            echo "<td>{$row['q3']}</td>";
+                            echo "</tr>";
+                        }
+                        echo "</table>";
+                    }
+                    ?>
+                    </p>
+                </div>
+                <div id="Results">
+                    <?php
+                    if (isset($_GET['raceId'])){
+                    $results = getRace("SELECT re.position, dr.forename, dr.surname, dr.driverId , co.name, co.constructorId , re.laps, re.points FROM results AS re JOIN drivers AS dr ON
+                    re.driverId = dr.driverId JOIN constructors AS co ON co.constructorId = re.constructorId JOIN races ON 
+                    races.raceId = re.raceId WHERE races.raceId =? ORDER BY re.position;", $_GET['raceId']);
+
+                    echo "<h1><b>Results</b></h1>";
+                    echo "<h2><b>First: <a href=''>{$results[0]['forename']} {$results[0]['surname']}</a></b></h2>";
+                    echo "<h2><b>Second: <a href=''>{$results[1]['forename']} {$results[1]['surname']}</a></b></h2>";
+                    echo "<h2><b>Third: <a href=''>{$results[2]['forename']} {$results[2]['surname']}</a></b></h2>";
+
+                    echo "<table id='qualifyingTable'>";
+                        echo "<tr>";
+                        echo "<th>Pos</th>";
+                        echo "<th>Driver</th>";
+                        echo "<th>Constructor</th>";
+                        echo "<th>Laps</th>";
+                        echo "<th>Points</th>";
+                        echo "</tr>";
+                        foreach ($results as $row){
+                            echo "<tr>";
+                            echo "<td>{$row['position']}</td>";
+                            echo "<td><a href=''>{$row['forename']} {$row['surname']}</a></td>";
+                            echo "<td><a href=''>{$row['name']}</a></td>";
+                            echo "<td>{$row['laps']}</td>";
+                            echo "<td>{$row['points']}</td>";
+                            echo "</tr>";
+                        }
+                    echo "</table>";
+
+                    }
+                    ?>
+                </div>
             </article>
         </main>
     </body>
