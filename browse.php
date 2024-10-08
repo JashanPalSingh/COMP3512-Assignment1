@@ -147,7 +147,11 @@ function getRace($SQL, $param){
                         echo "</tr>";
                         foreach ($results as $row){
                             echo "<tr>";
-                            echo "<td>{$row['position']}</td>";
+                            if ($row['position'] == null) {
+                                echo "<td>DNF</td>";
+                            } else {
+                                echo "<td>{$row['position']}</td>";
+                            }                            
                             echo "<td><a href=''>{$row['forename']} {$row['surname']}</a></td>";
                             echo "<td><a href=''>{$row['name']}</a></td>";
                             echo "<td>{$row['laps']}</td>";
