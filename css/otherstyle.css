@@ -50,3 +50,11 @@ p{
 #qualifyingTable{
     width: 100%;
 }
+
+.interactiveTable td a{
+    color: white;
+    text-decoration: none;
+}
+.interactiveTable td a:hover{
+    color: red;
+}
