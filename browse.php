@@ -73,6 +73,12 @@ function getRace($SQL, $param){
             </article>
             <article id='browseResults'>
                 <?php
+                
+                if (! isset($_GET['raceId'])) {
+                    echo "Select a Race";
+                }
+                
+
                 if (isset($_GET['raceId'])){
                     $info = getRace('SELECT ra.`round`, ra.`name` AS raceName, ra.raceId, ci.name AS circuitName, ci.location, ci.country, ra.date, ra.url 
                                     FROM races AS ra
@@ -96,7 +102,7 @@ function getRace($SQL, $param){
                     <p>
                     <?php
                     if (isset($_GET['raceId'])){
-                        $qualifying = getRace("SELECT q.position, d.forename, d.surname, d.driverId, c.name, c.constructorId, q.q1, q.q2, q.q3 FROM qualifying AS q 
+                        $qualifying = getRace("SELECT q.position, d.forename, d.surname, d.driverId, d.driverRef, c.name, c.constructorId, q.q1, q.q2, q.q3 FROM qualifying AS q 
                         JOIN drivers AS d ON q.driverId = d.driverId JOIN constructors AS c ON q.constructorId = c.constructorId 
                         JOIN races ON q.raceId = races.raceId WHERE races.raceId =? ORDER BY q.position;" ,$_GET['raceId']);
 
@@ -113,7 +119,7 @@ function getRace($SQL, $param){
                         foreach ($qualifying as $row){
                             echo "<tr>";
                             echo "<td>{$row['position']}</td>";
-                            echo "<td><a href=''>{$row['forename']} {$row['surname']}</a></td>";
+                            echo "<td><a href='http://localhost/jsing785/driver.php?driverRef={$row['driverRef']}'>{$row['forename']} {$row['surname']}</a></td>";
                             echo "<td><a href=''>{$row['name']}</a></td>";
                             echo "<td>{$row['q1']}</td>";
                             echo "<td>{$row['q2']}</td>";
@@ -128,7 +134,7 @@ function getRace($SQL, $param){
                 <div id="Results">
                     <?php
                     if (isset($_GET['raceId'])){
-                    $results = getRace("SELECT re.position, dr.forename, dr.surname, dr.driverId , co.name, co.constructorId , re.laps, re.points FROM results AS re JOIN drivers AS dr ON
+                    $results = getRace("SELECT re.position, dr.forename, dr.surname, dr.driverId, dr.driverRef, co.name, co.constructorId , re.laps, re.points FROM results AS re JOIN drivers AS dr ON
                     re.driverId = dr.driverId JOIN constructors AS co ON co.constructorId = re.constructorId JOIN races ON 
                     races.raceId = re.raceId WHERE races.raceId =? ORDER BY re.position;", $_GET['raceId']);
 
@@ -152,7 +158,7 @@ function getRace($SQL, $param){
                             } else {
                                 echo "<td>{$row['position']}</td>";
                             }                            
-                            echo "<td><a href=''>{$row['forename']} {$row['surname']}</a></td>";
+                            echo "<td><a href='http://localhost/jsing785/driver.php?driverRef={$row['driverRef']}'>{$row['forename']} {$row['surname']}</a></td>";
                             echo "<td><a href=''>{$row['name']}</a></td>";
                             echo "<td>{$row['laps']}</td>";
                             echo "<td>{$row['points']}</td>";
