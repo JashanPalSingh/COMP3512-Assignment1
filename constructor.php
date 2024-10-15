@@ -2,7 +2,7 @@
 include "includes/header.inc.php";
 include "includes/phpconfig.inc.php";
 
-function getDriver($SQL, $param){
+function getConstructor($SQL, $param){
     try{
         $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
         $statement = $pdo -> prepare($SQL);
@@ -34,24 +34,17 @@ function getDriver($SQL, $param){
         <?php createHeader() ?>
         <main id="main">
             <article>
-                <h2><b>Driver Details</b></h2>
+                <h2><b>Constructor Details</b></h2>
 
                 <?php
-                $sql= "SELECT DISTINCT d.'number', d.forename, d.surname, d.dob, d.nationality, d.url 
-                FROM drivers d
-                JOIN results r ON d.driverId = r.driverId
-                JOIN races ra ON r.raceId = ra.raceId
-                JOIN seasons s ON ra.year = s.year
-                WHERE d.driverRef= ?;";
+                $sql= "SELECT `name`, nationality, `url` FROM constructors
+                WHERE constructorRef= ?;";
 
-                $data= getDriver($sql, $_GET['driverRef']); 
+                $data= getConstructor($sql, $_GET['constructorRef']); 
                 foreach ($data as $row) {
-                    echo "<p><b>Driver Number:</b> {$row['number']}</p>";
-                    echo "<p><b>First Name:</b> {$row['forename']}</p>";
-                    echo "<p><b>Last Name:</b> {$row['surname']}</p>";
-                    echo "<p><b>Date of Birth:</b> {$row['dob']}</p>";
+                    echo "<p><b>Name:</b> {$row['name']}</p>";
                     echo "<p><b>Nationality:</b> {$row['nationality']}</p><br>";
-                    echo "<a href='{$row['url']}' class='decoratedlink'>View Profile</a>";
+                    echo "<a href='{$row['url']}' class='decoratedlink'>View Constructor</a>";
 
                 }
                 ?>
@@ -60,21 +53,18 @@ function getDriver($SQL, $param){
             <h2><b>Race Results</b></h2>
 
             <?php
-                $sql= "SELECT r.round, r.name AS raceName, r.raceId,  r.date, res.position, res.points
-                FROM results res
-                JOIN drivers d ON res.driverId = d.driverId
-                JOIN constructors c ON res.constructorId = c.constructorId
-                JOIN races r ON res.raceId = r.raceId
-                WHERE d.driverRef = ? AND r.YEAR= 2022
-                ORDER BY r.round ASC;";
+                $sql= "SELECT races.round, races.raceId, races.name AS circuitName , drivers.forename, drivers.surname,drivers.driverRef, results.position, results.points FROM results
+                        JOIN races ON races.raceId = results.raceId JOIN circuits ON races.circuitId = circuits.circuitId JOIN drivers ON
+                        drivers.driverId = results.driverId JOIN constructors ON
+                        constructors.constructorId = results.constructorId WHERE races.`year` = 2022 AND constructors.constructorRef=? ORDER BY races.round;";
 
-                $data= getDriver($sql, $_GET['driverRef']); 
+                $data= getConstructor($sql, $_GET['constructorRef']); 
                 ?>
                 <table class="interactiveTable">
                     <tr>
                         <th>Round</th>
-                        <th>Race Name</th>
-                        <th>Date</th>
+                        <th>Circuit</th>
+                        <th>Driver</th>
                         <th>Position</th>
                         <th>Points</th>
                     </tr>
@@ -82,8 +72,8 @@ function getDriver($SQL, $param){
                     foreach ($data as $row){
                         echo "<tr>";
                         echo "<td>{$row['round']}</td>";
-                        echo "<td><a href='http://localhost/jsing785/browse.php?raceId={$row['raceId']}'>{$row['raceName']}</a></td>";
-                        echo "<td>{$row['date']}</td>";
+                        echo "<td><a href='http://localhost/jsing785/browse.php?raceId={$row['raceId']}'>{$row['circuitName']}</a></td>";
+                        echo "<td><a href='http://localhost/jsing785/driver.php?driverRef={$row['driverRef']}'>{$row['forename']} {$row['surname']}</a></td>";
                         if ($row['position'] == null) {
                             echo "<td>DNF</td>";
                         } else {

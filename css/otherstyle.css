@@ -1,12 +1,17 @@
 body{
-    background-image: url(bg2.jpg); /*Image source: https://wallpapers.com/hamilton-f1 */
-    background-size: cover;
+    /*background-image: url(bg2.jpg); Image source: https://wallpapers.com/hamilton-f1 */
+    /*background-size: cover;*/
+    background-color: rgb(54, 54, 54);
 }
 
 article{
     margin: 20px;
     padding: 10px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgb(7, 10, 19);
+    /* border-style: solid;
+    border-radius: 10px;
+    border-color: red;
+    border-width: 5px; */
 }
 #RaceTable{
     width: 100%;
