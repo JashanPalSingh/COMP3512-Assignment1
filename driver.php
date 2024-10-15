@@ -1,6 +1,7 @@
 <?php
 include "includes/header.inc.php";
 include "includes/phpconfig.inc.php";
+include "includes/footer.inc.php";
 
 function getDriver($SQL, $param){
     try{
@@ -102,5 +103,7 @@ function getDriver($SQL, $param){
 
             </article>
         </main>
+        
+        <?php createFooter();?>
     </body>
 </html>

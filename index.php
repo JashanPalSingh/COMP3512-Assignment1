@@ -1,6 +1,6 @@
 <?php
 include "includes/header.inc.php";
-
+include "includes/footer.inc.php";
 ?>
 
 <html lang="en">
@@ -40,5 +40,6 @@ include "includes/header.inc.php";
                 <img src="css/Background.PNG" width="100%"/> <!-- image source: https://wallpapercave.com/w/wp12663282 -->
             </article>
         </main>
+        <?php createFooter();?>
     </body>
 </html>

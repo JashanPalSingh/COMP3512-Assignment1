@@ -8,10 +8,7 @@ article{
     margin: 20px;
     padding: 10px;
     background-color: rgb(7, 10, 19);
-    /* border-style: solid;
-    border-radius: 10px;
-    border-color: red;
-    border-width: 5px; */
+    border-radius: 30px;
 }
 #RaceTable{
     width: 100%;
@@ -71,4 +68,11 @@ p{
 
 #top3 h2{
     display: inline;
+}
+
+fieldset{
+    border-color: red;
+    border-radius: 20px;
+    border-width: 10px;
+    border-style: solid;
 }

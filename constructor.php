@@ -1,6 +1,7 @@
 <?php
 include "includes/header.inc.php";
 include "includes/phpconfig.inc.php";
+include "includes/footer.inc.php";
 
 function getConstructor($SQL, $param){
     try{
@@ -92,5 +93,7 @@ function getConstructor($SQL, $param){
 
             </article>
         </main>
+        
+        <?php createFooter();?>
     </body>
 </html>

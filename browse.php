@@ -1,6 +1,7 @@
 <?php
 include "includes/header.inc.php";
 include "includes/phpconfig.inc.php";
+include "includes/footer.inc.php";
 
 function getRaces($SQL){
     try{
@@ -85,7 +86,7 @@ function getRace($SQL, $param){
                                     JOIN circuits AS ci
                                     ON ra.circuitId = ci.circuitId
                                     WHERE  ra.raceId =?;', $_GET['raceId']);
-                    echo "<h1><b>{$info[0]['raceName']}</b></h1>";
+                    echo "<fieldset><legend><h1><b>  {$info[0]['raceName']}  </b></h1></legend>";
                     echo "<p>";
                     echo "<h3><b>Round:</b> {$info[0]['round']}<br></h3>";
                     echo "<h3><b>Circuit:</b> {$info[0]['circuitName']}<br></h3>";
@@ -96,6 +97,8 @@ function getRace($SQL, $param){
                     echo '<a href="'.$info[0]['url'].'" class="decoratedlink"> VIEW RACE</a>';
                     echo "<br>";
                     echo "<br>";
+                    
+                    echo "</fieldset>";
                     echo "<br>";
                     echo "</p>";
 
@@ -109,7 +112,7 @@ function getRace($SQL, $param){
                         JOIN drivers AS d ON q.driverId = d.driverId JOIN constructors AS c ON q.constructorId = c.constructorId 
                         JOIN races ON q.raceId = races.raceId WHERE races.raceId =? ORDER BY q.position;" ,$_GET['raceId']);
 
-                        echo "<h1><b>Qualifying</b></h1>";
+                        echo "<fieldset><legend><h1><b>  Qualifying  </b></h1></legend>";
                         echo "<table class='interactiveTable'>";
                         echo "<tr>";
                         echo "<th>Pos</th>";
@@ -131,6 +134,8 @@ function getRace($SQL, $param){
                         }
                         echo "</table>";
                         echo "<br>";
+                        echo "</fieldset>";
+                        echo "<br>";
                     }
                     ?>
                     </p>
@@ -142,7 +147,7 @@ function getRace($SQL, $param){
                     re.driverId = dr.driverId JOIN constructors AS co ON co.constructorId = re.constructorId JOIN races ON 
                     races.raceId = re.raceId WHERE races.raceId =? ORDER BY re.position;", $_GET['raceId']);
 
-                    echo "<h1><b>Results</b></h1>";
+                    echo "<fieldset><legend><h1><b>Results</b></h1></legend>";
                     echo "<div id='top3'>";
                     echo "<h2><b>First: <a href=''>{$results[0]['forename']} {$results[0]['surname']}</a></b></h2>";
                     echo "<h2><b>Second: <a href=''>{$results[1]['forename']} {$results[1]['surname']}</a></b></h2>";
@@ -171,11 +176,13 @@ function getRace($SQL, $param){
                             echo "</tr>";
                         }
                     echo "</table>";
-
+                    echo "</fieldset>";
                     }
                     ?>
                 </div>
             </article>
         </main>
+        
+        <?php createFooter();?>
     </body>
 </html>

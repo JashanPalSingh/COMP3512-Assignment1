@@ -54,7 +54,6 @@ nav ul li a:hover{
     padding: 20px;
     display: grid;
     grid-template-columns: 30% 70%;
-    min-height: 100%;
 }
 article{
     height: 100%;
@@ -83,4 +82,11 @@ p{
     color: white;
     margin: 10px;
     background-color: rgba(0,0,0,0.5);
+}
+footer{
+    width: 100%;
+    padding: 20px;
+    height: 50px;
+    margin: 0px;
+    background: linear-gradient(rgba(0,0,0,0), black); /* reference: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients */
 }
