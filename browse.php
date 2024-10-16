@@ -2,33 +2,7 @@
 include "includes/header.inc.php";
 include "includes/phpconfig.inc.php";
 include "includes/footer.inc.php";
-
-function getRaces($SQL){
-    try{
-        $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
-        $statement = $pdo -> prepare($SQL);
-        $statement -> execute();
-        $pdo = null;
-        return $statement -> fetchAll();
-    } catch (PDOException $e){
-        echo "error : Function did not work";
-    }
-}
-
-
-function getRace($SQL, $param){
-    try{
-        $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
-        $statement = $pdo -> prepare($SQL);
-        $statement -> bindValue(1, $param);
-        $statement -> execute();
-        $pdo = null;
-        return $statement -> fetchAll();
-    } catch (PDOException $e){
-        echo "error : Function did not work";
-    }
-}
-
+include "includes/function.inc.php";
 
 ?>
 
@@ -51,7 +25,7 @@ function getRace($SQL, $param){
                 <h2><b>2022 Races</b></h2>
                 <p>
                     <?php
-                        $data = getRaces('SELECT `round`, `name`, raceId FROM races WHERE races.`year` = 2022 ORDER BY `round`;');
+                        $data = getData('SELECT `round`, `name`, raceId FROM races WHERE races.`year` = 2022 ORDER BY `round`;', null);
                         echo "<table id='RaceTable'>";
 
                         echo "<tr>"; 
@@ -81,7 +55,7 @@ function getRace($SQL, $param){
                 
 
                 if (isset($_GET['raceId'])){
-                    $info = getRace('SELECT ra.`round`, ra.`name` AS raceName, ra.raceId, ci.name AS circuitName, ci.location, ci.country, ra.date, ra.url 
+                    $info = getData('SELECT ra.`round`, ra.`name` AS raceName, ra.raceId, ci.name AS circuitName, ci.location, ci.country, ra.date, ra.url 
                                     FROM races AS ra
                                     JOIN circuits AS ci
                                     ON ra.circuitId = ci.circuitId
@@ -108,7 +82,7 @@ function getRace($SQL, $param){
                     <p>
                     <?php
                     if (isset($_GET['raceId'])){
-                        $qualifying = getRace("SELECT q.position, d.forename, d.surname, d.driverId, d.driverRef, c.name, c.constructorId, c.constructorRef, q.q1, q.q2, q.q3 FROM qualifying AS q 
+                        $qualifying = getData("SELECT q.position, d.forename, d.surname, d.driverId, d.driverRef, c.name, c.constructorId, c.constructorRef, q.q1, q.q2, q.q3 FROM qualifying AS q 
                         JOIN drivers AS d ON q.driverId = d.driverId JOIN constructors AS c ON q.constructorId = c.constructorId 
                         JOIN races ON q.raceId = races.raceId WHERE races.raceId =? ORDER BY q.position;" ,$_GET['raceId']);
 
@@ -143,7 +117,7 @@ function getRace($SQL, $param){
                 <div id="Results">
                     <?php
                     if (isset($_GET['raceId'])){
-                    $results = getRace("SELECT re.position, dr.forename, dr.surname, dr.driverId, dr.driverRef, co.name, co.constructorRef , re.laps, re.points FROM results AS re JOIN drivers AS dr ON
+                    $results = getData("SELECT re.position, dr.forename, dr.surname, dr.driverId, dr.driverRef, co.name, co.constructorRef , re.laps, re.points FROM results AS re JOIN drivers AS dr ON
                     re.driverId = dr.driverId JOIN constructors AS co ON co.constructorId = re.constructorId JOIN races ON 
                     races.raceId = re.raceId WHERE races.raceId =? ORDER BY re.position;", $_GET['raceId']);
 

@@ -2,20 +2,7 @@
 include "includes/header.inc.php";
 include "includes/phpconfig.inc.php";
 include "includes/footer.inc.php";
-
-function getConstructor($SQL, $param){
-    try{
-        $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
-        $statement = $pdo -> prepare($SQL);
-        $statement -> bindValue(1, $param);
-        $statement -> execute();
-        $pdo = null;
-        return $statement -> fetchAll();
-    } catch (PDOException $e){
-        echo "error : Function did not work";
-    }
-}
-
+include "includes/function.inc.php";
 
 ?>
 
@@ -41,7 +28,7 @@ function getConstructor($SQL, $param){
                 $sql= "SELECT `name`, nationality, `url` FROM constructors
                 WHERE constructorRef= ?;";
 
-                $data= getConstructor($sql, $_GET['constructorRef']); 
+                $data= getData($sql, $_GET['constructorRef']); 
                 foreach ($data as $row) {
                     echo "<div class='constructorbig'><b>{$row['name']}</b></div>";
                     echo "<p><b>Nationality:</b> {$row['nationality']}</p><br>";
@@ -59,7 +46,7 @@ function getConstructor($SQL, $param){
                         drivers.driverId = results.driverId JOIN constructors ON
                         constructors.constructorId = results.constructorId WHERE races.`year` = 2022 AND constructors.constructorRef=? ORDER BY races.round;";
 
-                $data= getConstructor($sql, $_GET['constructorRef']); 
+                $data= getData($sql, $_GET['constructorRef']); 
                 ?>
                 <table class="interactiveTable">
                     <tr>

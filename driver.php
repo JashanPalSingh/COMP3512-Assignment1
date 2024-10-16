@@ -2,19 +2,7 @@
 include "includes/header.inc.php";
 include "includes/phpconfig.inc.php";
 include "includes/footer.inc.php";
-
-function getDriver($SQL, $param){
-    try{
-        $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
-        $statement = $pdo -> prepare($SQL);
-        $statement -> bindValue(1, $param);
-        $statement -> execute();
-        $pdo = null;
-        return $statement -> fetchAll();
-    } catch (PDOException $e){
-        echo "error : Function did not work";
-    }
-}
+include "includes/function.inc.php";
 
 
 ?>
@@ -45,7 +33,7 @@ function getDriver($SQL, $param){
                 JOIN seasons s ON ra.year = s.year
                 WHERE d.driverRef= ?;";
 
-                $data= getDriver($sql, $_GET['driverRef']); 
+                $data= getData($sql, $_GET['driverRef']); 
                 foreach ($data as $row) {
                     echo "<div class='big'><b>#{$row['number']}</b></div>";
                     echo "<p><h1>{$row['forename']} <b>{$row['surname']}</b></h1></p>";
@@ -68,7 +56,7 @@ function getDriver($SQL, $param){
                 WHERE d.driverRef = ? AND r.YEAR= 2022
                 ORDER BY r.round ASC;";
 
-                $data= getDriver($sql, $_GET['driverRef']); 
+                $data= getData($sql, $_GET['driverRef']); 
                 ?>
                 <table class="interactiveTable">
                     <tr>
