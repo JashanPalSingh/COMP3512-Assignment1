@@ -124,8 +124,8 @@ include "includes/function.inc.php";
                     echo "<fieldset><legend><h1><b>Results</b></h1></legend>";
                     echo "<div id='top3'>";
                         echo "<div class='rank'><h2><b><i>II</i><br> <a href='http://localhost/jsing785/driver.php?driverRef={$results[1]['driverRef']}'>{$results[1]['forename']} {$results[1]['surname']}</a></b></h2></div>";
-                        echo "<div class='rank'><h2><b><i>I</i><br> <a href='http://localhost/jsing785/driver.php?driverRef={$results[1]['driverRef']}'>{$results[0]['forename']} {$results[0]['surname']}</a></b></h2></div>";
-                        echo "<div class='rank'><h2><b><i>III</i><br> <a href='http://localhost/jsing785/driver.php?driverRef={$results[1]['driverRef']}'>{$results[2]['forename']} {$results[2]['surname']}</a></b></h2></div>";
+                        echo "<div class='rank'><h2><b><i>I</i><br> <a href='http://localhost/jsing785/driver.php?driverRef={$results[0]['driverRef']}'>{$results[0]['forename']} {$results[0]['surname']}</a></b></h2></div>";
+                        echo "<div class='rank'><h2><b><i>III</i><br> <a href='http://localhost/jsing785/driver.php?driverRef={$results[2]['driverRef']}'>{$results[2]['forename']} {$results[2]['surname']}</a></b></h2></div>";
                     echo "</div>";
 
                     echo "<table class='interactiveTable'>";
