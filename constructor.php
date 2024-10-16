@@ -34,7 +34,7 @@ function getConstructor($SQL, $param){
     <body>
         <?php createHeader() ?>
         <main id="main">
-            <article>
+            <article id='constructorDetails'>
                 <h2><b>Constructor Details</b></h2>
 
                 <?php
@@ -43,7 +43,7 @@ function getConstructor($SQL, $param){
 
                 $data= getConstructor($sql, $_GET['constructorRef']); 
                 foreach ($data as $row) {
-                    echo "<p><b>Name:</b> {$row['name']}</p>";
+                    echo "<div class='constructorbig'><b>{$row['name']}</b></div>";
                     echo "<p><b>Nationality:</b> {$row['nationality']}</p><br>";
                     echo "<a href='{$row['url']}' class='decoratedlink'>View Constructor</a>";
 
@@ -51,7 +51,7 @@ function getConstructor($SQL, $param){
                 ?>
             </article>
             <article>
-            <h2><b>Race Results</b></h2>
+            <fieldset><legend><h2><b>Race Results</b></h2></legend>
 
             <?php
                 $sql= "SELECT races.round, races.raceId, races.name AS circuitName , drivers.forename, drivers.surname,drivers.driverRef, results.position, results.points FROM results
@@ -88,7 +88,7 @@ function getConstructor($SQL, $param){
                     ?>
                     
                     </table>
-
+                </fieldset>
 
 
             </article>

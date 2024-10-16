@@ -76,7 +76,7 @@ function getRace($SQL, $param){
                 <?php
                 
                 if (! isset($_GET['raceId'])) {
-                    echo "Select a Race";
+                    echo "<h1> <<< Select a Race</h1>";
                 }
                 
 
@@ -86,7 +86,7 @@ function getRace($SQL, $param){
                                     JOIN circuits AS ci
                                     ON ra.circuitId = ci.circuitId
                                     WHERE  ra.raceId =?;', $_GET['raceId']);
-                    echo "<fieldset><legend><h1><b>  {$info[0]['raceName']}  </b></h1></legend>";
+                    echo "<fieldset><legend class='constructorbig'><b>  {$info[0]['raceName']}  </b></legend>";
                     echo "<p>";
                     echo "<h3><b>Round:</b> {$info[0]['round']}<br></h3>";
                     echo "<h3><b>Circuit:</b> {$info[0]['circuitName']}<br></h3>";
@@ -143,15 +143,15 @@ function getRace($SQL, $param){
                 <div id="Results">
                     <?php
                     if (isset($_GET['raceId'])){
-                    $results = getRace("SELECT re.position, dr.forename, dr.surname, dr.driverId, dr.driverRef, co.name, co.constructorId , re.laps, re.points FROM results AS re JOIN drivers AS dr ON
+                    $results = getRace("SELECT re.position, dr.forename, dr.surname, dr.driverId, dr.driverRef, co.name, co.constructorRef , re.laps, re.points FROM results AS re JOIN drivers AS dr ON
                     re.driverId = dr.driverId JOIN constructors AS co ON co.constructorId = re.constructorId JOIN races ON 
                     races.raceId = re.raceId WHERE races.raceId =? ORDER BY re.position;", $_GET['raceId']);
 
                     echo "<fieldset><legend><h1><b>Results</b></h1></legend>";
                     echo "<div id='top3'>";
-                    echo "<h2><b>First: <a href=''>{$results[0]['forename']} {$results[0]['surname']}</a></b></h2>";
-                    echo "<h2><b>Second: <a href=''>{$results[1]['forename']} {$results[1]['surname']}</a></b></h2>";
-                    echo "<h2><b>Third: <a href=''>{$results[2]['forename']} {$results[2]['surname']}</a></b></h2>";
+                        echo "<div class='rank'><h2><b><i>II</i><br> <a href='http://localhost/jsing785/driver.php?driverRef={$results[1]['driverRef']}'>{$results[1]['forename']} {$results[1]['surname']}</a></b></h2></div>";
+                        echo "<div class='rank'><h2><b><i>I</i><br> <a href='http://localhost/jsing785/driver.php?driverRef={$results[1]['driverRef']}'>{$results[0]['forename']} {$results[0]['surname']}</a></b></h2></div>";
+                        echo "<div class='rank'><h2><b><i>III</i><br> <a href='http://localhost/jsing785/driver.php?driverRef={$results[1]['driverRef']}'>{$results[2]['forename']} {$results[2]['surname']}</a></b></h2></div>";
                     echo "</div>";
 
                     echo "<table class='interactiveTable'>";
@@ -170,7 +170,7 @@ function getRace($SQL, $param){
                                 echo "<td>{$row['position']}</td>";
                             }                            
                             echo "<td><a href='http://localhost/jsing785/driver.php?driverRef={$row['driverRef']}'>{$row['forename']} {$row['surname']}</a></td>";
-                            echo "<td><a href=''>{$row['name']}</a></td>";
+                            echo "<td><a href='http://localhost/jsing785/constructor.php?constructorRef={$row['constructorRef']}'>{$row['name']}</a></td>";
                             echo "<td>{$row['laps']}</td>";
                             echo "<td>{$row['points']}</td>";
                             echo "</tr>";
@@ -183,6 +183,7 @@ function getRace($SQL, $param){
             </article>
         </main>
         
+            
         <?php createFooter();?>
     </body>
 </html>

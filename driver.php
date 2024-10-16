@@ -34,7 +34,7 @@ function getDriver($SQL, $param){
     <body>
         <?php createHeader() ?>
         <main id="main">
-            <article>
+            <article id="driverDetails">
                 <h2><b>Driver Details</b></h2>
 
                 <?php
@@ -47,9 +47,8 @@ function getDriver($SQL, $param){
 
                 $data= getDriver($sql, $_GET['driverRef']); 
                 foreach ($data as $row) {
-                    echo "<p><b>Driver Number:</b> {$row['number']}</p>";
-                    echo "<p><b>First Name:</b> {$row['forename']}</p>";
-                    echo "<p><b>Last Name:</b> {$row['surname']}</p>";
+                    echo "<div class='big'><b>#{$row['number']}</b></div>";
+                    echo "<p><h1>{$row['forename']} <b>{$row['surname']}</b></h1></p>";
                     echo "<p><b>Date of Birth:</b> {$row['dob']}</p>";
                     echo "<p><b>Nationality:</b> {$row['nationality']}</p><br>";
                     echo "<a href='{$row['url']}' class='decoratedlink'>View Profile</a>";
@@ -58,7 +57,7 @@ function getDriver($SQL, $param){
                 ?>
             </article>
             <article>
-            <h2><b>Race Results</b></h2>
+            <fieldset><legend><h2><b>Race Results</b></h2></legend>
 
             <?php
                 $sql= "SELECT r.round, r.name AS raceName, r.raceId,  r.date, res.position, res.points
@@ -98,9 +97,7 @@ function getDriver($SQL, $param){
                     ?>
                     
                     </table>
-
-
-
+                </fieldset>
             </article>
         </main>
         

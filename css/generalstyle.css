@@ -1,6 +1,9 @@
 body{
+    display: grid;
+    grid-template-rows: auto, 1fr, auto;
     margin: 0px;
     min-width: 1200px;
+    min-height:100vh;
     width: 100%;
     background-color: black;
     background-size: 100vh;
@@ -51,12 +54,13 @@ nav ul li a:hover{
 }
 
 #main{
+    width: 95%;
+    margin: auto;
     padding: 20px;
     display: grid;
     grid-template-columns: 30% 70%;
-}
-article{
-    height: 100%;
+    overflow: hidden;
+    max-width: 1920px;
 }
 
 p{
@@ -87,6 +91,13 @@ footer{
     width: 100%;
     padding: 20px;
     height: 50px;
-    margin: 0px;
+    margin-top: 20px;
     background: linear-gradient(rgba(0,0,0,0), black); /* reference: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients */
+}
+
+footer img{
+    display: block;
+    height: 60px;
+    float: left;
+    margin-right: 20px;
 }

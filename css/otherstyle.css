@@ -1,14 +1,18 @@
 body{
-    /*background-image: url(bg2.jpg); Image source: https://wallpapers.com/hamilton-f1 */
-    /*background-size: cover;*/
+    /* background-image: url(bg2.jpg); /*Image_source: https://wallpapers.com/hamilton-f1;*/
+    /* background-size: cover;  */
     background-color: rgb(54, 54, 54);
 }
 
 article{
     margin: 20px;
-    padding: 10px;
+    padding: 20px;
+    padding-bottom: 30px;
     background-color: rgb(7, 10, 19);
     border-radius: 30px;
+    display: block;
+    overflow: scroll;
+    box-shadow: 5px 5px 5px black;
 }
 #RaceTable{
     width: 100%;
@@ -34,7 +38,6 @@ article{
 
 .decoratedlink{
     background-color: red;
-    margin: 10px;
     padding: 20px;
     text-decoration: none;
     color: white;
@@ -66,8 +69,24 @@ p{
     color: red;
 }
 
-#top3 h2{
-    display: inline;
+#top3{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.rank{
+    background-color: red;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 10px;
+    margin: 10px;
+}
+.rank a{
+    text-decoration: none;
+    color: white;
+}
+.rank a:hover{
+    color: black;
 }
 
 fieldset{
@@ -75,4 +94,18 @@ fieldset{
     border-radius: 20px;
     border-width: 10px;
     border-style: solid;
+}
+.big{
+    font-size: 100px;
+}
+.constructorbig{
+    font-size: 50px;
+}
+#driverDetails{
+    background-image: url(DriverDetails.PNG); /*image source: https://www.f1-fansite.com/2022-f1-season/ */
+    background-size: cover;
+}
+#constructorDetails{
+    background-image: url(constructors.PNG); /*image source: https://www.pinterest.com/pin/7107311905814245/ */
+    background-size: cover;
 }
