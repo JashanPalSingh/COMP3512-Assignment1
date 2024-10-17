@@ -57,9 +57,13 @@ p{
     width: 100%;
     font-family: "Urbanist", sans-serif;
     font-style: normal;
+    border: 0;
 }
 .interactiveTable th {
     text-align: left;
+}
+.interactiveTable tr:hover{
+    background-color: rgb(76, 76, 76);
 }
 
 .interactiveTable td a{
