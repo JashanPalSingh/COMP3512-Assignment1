@@ -1,5 +1,10 @@
 <?php 
 
+/**
+ * API that returns qualifying information in JSON format.
+ * @author Ishan Ishan
+ */
+
 require_once ('../includes/config.inc.php');
 header('content-type: application/json');
 header("Access-Control-Allow-Origin: *");

@@ -1,6 +1,6 @@
+/* Dictates the general styling of the website
+Authors: Ishan Ishan, Jashan Pal Singh */
 body{
-    /* display: grid;
-    grid-template-rows: auto, 1fr, auto; */
     display: flex;
     flex-direction: column;
     margin: 0px;
@@ -55,13 +55,11 @@ nav ul li a:hover{
 
 #main{
     flex: 1;
-    /* min-height:100vh; */
     width: 95%;
     margin: auto;
     padding: 20px;
     display: grid;
     grid-template-columns: 30% 70%;
-    /* overflow: hidden; */
     max-width: 1920px;
 }
 

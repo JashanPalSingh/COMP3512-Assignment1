@@ -3,6 +3,9 @@ include "includes/header.inc.php";
 include "includes/footer.inc.php";
 ?>
 
+ <!-- Homepage of our dashboard. Allows users to see the github repo or proceed to see the 2022 season in 
+ browse page.
+ authors: Ishan Ishan, Jashan Pal Singh. -->
 <html lang="en">
     <head>
         <title>F1 Dashboard</title>
@@ -11,7 +14,7 @@ include "includes/footer.inc.php";
         <meta name="description" content="Assignment #1 for COMP3512 at Mount Royal University">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!--SOURCE:  https://fonts.google.com/selection?classification=Display&stroke=Sans+Serif-->
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> <!-- SOURCE: https://fonts.google.com/specimen/Urbanist -->
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     </head>
     <body>

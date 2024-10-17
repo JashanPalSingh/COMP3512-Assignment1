@@ -1,4 +1,8 @@
 <?php
+/**
+ * Config file for our APIs. different from PHP pages because of file structure.
+ * @author Ishan Ishan, Jashan Pal Singh
+ */
 define('DBHOST', 'localhost');
 define('DBNAME', 'f1');
 define('DBUSER', 'root');

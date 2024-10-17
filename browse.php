@@ -6,6 +6,10 @@ include "includes/function.inc.php";
 
 ?>
 
+ <!-- The browse page provides a list of 2022 races, users can select a race which let's them see the 
+ circuit stats, qualifies and race results with drivers and constructor names.
+ authors: Ishan Ishan, Jashan Pal Singh -->
+
 <html lang="en">
     <head>
         <title>2022 Season</title>
@@ -35,8 +39,8 @@ include "includes/function.inc.php";
                                                  
                         foreach ($data as $row){
                             echo "<tr>";
-                            echo "<td>{$row['round']}</td>";
-                            echo "<td>{$row['name']}</td>";
+                            echo "<td>{$row['round']}</td>"; //Gave out parsing error initially
+                            echo "<td>{$row['name']}</td>"; // Works when wrapped in curly brackets. Source: https://www.codecademy.com/learn/learn-php/modules/learn-php-variables/cheatsheet 
                             echo "<td><form action='http://localhost/jsing785/browse.php?' method='GET'><button type='submit' class='resultsButton' name='raceId' value={$row['raceId']}>Results</button></form></td>";                            
                             echo "</tr>";
                         };           

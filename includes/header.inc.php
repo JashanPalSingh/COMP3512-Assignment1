@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Includes file for our header element.
+ * @author Jashan Pal Singh
+ */
 function createHeader(){
     echo "<header>";
     echo        "<a href='index.php'><img src='css/formula1logo.png' alt='Dashboard Homepage'></a> <!-- Image Sourcce: https://en.logodownload.org/formula-1-logo-f1-logo/ -->";

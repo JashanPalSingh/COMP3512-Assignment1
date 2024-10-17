@@ -1,4 +1,9 @@
 <?php 
+/**
+ * API that returns circuit information in JSON format.
+ * @author Ishan Ishan
+ */
+
 
 require_once ('../includes/config.inc.php');
 header('content-type: application/json');

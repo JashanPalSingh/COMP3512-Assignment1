@@ -2,7 +2,8 @@
 include "includes/header.inc.php";
 
 ?>
-
+<!-- Lists links to all the APIs required by the assignment.
+Author: Ishan Ishan -->
 <html lang="en">
     <head>
         <title>F1 Dashboard</title>

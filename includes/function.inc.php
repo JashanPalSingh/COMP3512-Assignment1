@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * One function to return everything on our dashboard.
+ * Takes a sql string and a parameter (if given)
+ * returns an array of data to be displayed.
+ * @author Jashan Pal Singh.
+ */
 function getData($SQL, $param){
     try{
         $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);

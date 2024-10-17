@@ -1,4 +1,9 @@
 <?php
+/**
+ * Defines connection for our php pages. Different from our API connection because of file structure.
+ * @author Ishan Ishan, Jashan Pal Singh
+ */
+
 define('DBHOST', 'localhost');
 define('DBNAME', 'f1');
 define('DBUSER', 'root');

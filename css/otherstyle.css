@@ -1,6 +1,7 @@
+/* Dictates styling of more specific elements in our php pages.
+Author: Ishan Ishan, Jashan Pal Singh. */
+
 body{
-    /* background-image: url(bg2.jpg); /*Image_source: https://wallpapers.com/hamilton-f1;*/
-    /* background-size: cover;  */
     background-color: rgb(54, 54, 54);
 }
 

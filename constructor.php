@@ -5,6 +5,10 @@ include "includes/footer.inc.php";
 include "includes/function.inc.php";
 
 ?>
+<!-- 
+ The constructor (team) profile page. Gives users constructor statistics and 
+ driver performance statistics based on their choice in the browse page.
+ authors: Ishan Ishan, Jashan Pal Singh. -->
 
 <html lang="en">
     <head>

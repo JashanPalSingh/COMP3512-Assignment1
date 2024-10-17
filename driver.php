@@ -4,12 +4,15 @@ include "includes/phpconfig.inc.php";
 include "includes/footer.inc.php";
 include "includes/function.inc.php";
 
-
 ?>
+<!-- 
+ The driver profile page. Gives users driver statistics based on thei choice in the browse page.
+ authors: Ishan Ishan, Jashan Pal Singh.
+ -->
 
 <html lang="en">
     <head>
-        <title>F1 Dashboard</title>
+        <title>Driver Profile</title>
         <link rel="stylesheet" type="text/css" href= "css/generalstyle.css">
         <link rel="stylesheet" type="text/css" href= "css/otherstyle.css">
         <meta charset="utf-8">
