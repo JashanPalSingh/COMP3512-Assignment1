@@ -64,8 +64,8 @@ include "includes/function.inc.php";
                     foreach ($data as $row){
                         echo "<tr>";
                         echo "<td>{$row['round']}</td>";
-                        echo "<td><a href='http://localhost/jsing785/browse.php?raceId={$row['raceId']}'>{$row['circuitName']}</a></td>";
-                        echo "<td><a href='http://localhost/jsing785/driver.php?driverRef={$row['driverRef']}'>{$row['forename']} {$row['surname']}</a></td>";
+                        echo "<td><a href='./browse.php?raceId={$row['raceId']}'>{$row['circuitName']}</a></td>";
+                        echo "<td><a href='./driver.php?driverRef={$row['driverRef']}'>{$row['forename']} {$row['surname']}</a></td>";
                         if ($row['position'] == null) {
                             echo "<td>DNF</td>";
                         } else {

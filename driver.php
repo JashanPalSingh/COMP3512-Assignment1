@@ -73,7 +73,7 @@ include "includes/function.inc.php";
                     foreach ($data as $row){
                         echo "<tr>";
                         echo "<td>{$row['round']}</td>";
-                        echo "<td><a href='http://localhost/jsing785/browse.php?raceId={$row['raceId']}'>{$row['raceName']}</a></td>";
+                        echo "<td><a href='./browse.php?raceId={$row['raceId']}'>{$row['raceName']}</a></td>";
                         echo "<td>{$row['date']}</td>";
                         if ($row['position'] == null) {
                             echo "<td>DNF</td>";

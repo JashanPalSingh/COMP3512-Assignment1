@@ -41,7 +41,7 @@ include "includes/function.inc.php";
                             echo "<tr>";
                             echo "<td>{$row['round']}</td>"; //Gave out parsing error initially
                             echo "<td>{$row['name']}</td>"; // Works when wrapped in curly brackets. Source: https://www.codecademy.com/learn/learn-php/modules/learn-php-variables/cheatsheet 
-                            echo "<td><form action='http://localhost/jsing785/browse.php?' method='GET'><button type='submit' class='resultsButton' name='raceId' value={$row['raceId']}>Results</button></form></td>";                            
+                            echo "<td><form action='./browse.php?' method='GET'><button type='submit' class='resultsButton' name='raceId' value={$row['raceId']}>Results</button></form></td>";                            
                             echo "</tr>";
                         };           
 
@@ -103,8 +103,8 @@ include "includes/function.inc.php";
                         foreach ($qualifying as $row){
                             echo "<tr>";
                             echo "<td>{$row['position']}</td>";
-                            echo "<td><a href='http://localhost/jsing785/driver.php?driverRef={$row['driverRef']}'>{$row['forename']} {$row['surname']}</a></td>";
-                            echo "<td><a href='http://localhost/jsing785/constructor.php?constructorRef={$row['constructorRef']}'>{$row['name']}</a></td>";
+                            echo "<td><a href='./driver.php?driverRef={$row['driverRef']}'>{$row['forename']} {$row['surname']}</a></td>";
+                            echo "<td><a href='./constructor.php?constructorRef={$row['constructorRef']}'>{$row['name']}</a></td>";
                             echo "<td>{$row['q1']}</td>";
                             echo "<td>{$row['q2']}</td>";
                             echo "<td>{$row['q3']}</td>";
@@ -127,9 +127,9 @@ include "includes/function.inc.php";
 
                     echo "<fieldset><legend><h1><b>Results</b></h1></legend>";
                     echo "<div id='top3'>";
-                        echo "<div class='rank'><h2><b><i>II</i><br> <a href='http://localhost/jsing785/driver.php?driverRef={$results[1]['driverRef']}'>{$results[1]['forename']} {$results[1]['surname']}</a></b></h2></div>";
-                        echo "<div class='rank'><h2><b><i>I</i><br> <a href='http://localhost/jsing785/driver.php?driverRef={$results[0]['driverRef']}'>{$results[0]['forename']} {$results[0]['surname']}</a></b></h2></div>";
-                        echo "<div class='rank'><h2><b><i>III</i><br> <a href='http://localhost/jsing785/driver.php?driverRef={$results[2]['driverRef']}'>{$results[2]['forename']} {$results[2]['surname']}</a></b></h2></div>";
+                        echo "<div class='rank'><h2><b><i>II</i><br> <a href='./driver.php?driverRef={$results[1]['driverRef']}'>{$results[1]['forename']} {$results[1]['surname']}</a></b></h2></div>";
+                        echo "<div class='rank'><h2><b><i>I</i><br> <a href='./driver.php?driverRef={$results[0]['driverRef']}'>{$results[0]['forename']} {$results[0]['surname']}</a></b></h2></div>";
+                        echo "<div class='rank'><h2><b><i>III</i><br> <a href='./driver.php?driverRef={$results[2]['driverRef']}'>{$results[2]['forename']} {$results[2]['surname']}</a></b></h2></div>";
                     echo "</div>";
 
                     echo "<table class='interactiveTable'>";
@@ -147,8 +147,8 @@ include "includes/function.inc.php";
                             } else {
                                 echo "<td>{$row['position']}</td>";
                             }                            
-                            echo "<td><a href='http://localhost/jsing785/driver.php?driverRef={$row['driverRef']}'>{$row['forename']} {$row['surname']}</a></td>";
-                            echo "<td><a href='http://localhost/jsing785/constructor.php?constructorRef={$row['constructorRef']}'>{$row['name']}</a></td>";
+                            echo "<td><a href='./driver.php?driverRef={$row['driverRef']}'>{$row['forename']} {$row['surname']}</a></td>";
+                            echo "<td><a href='./constructor.php?constructorRef={$row['constructorRef']}'>{$row['name']}</a></td>";
                             echo "<td>{$row['laps']}</td>";
                             echo "<td>{$row['points']}</td>";
                             echo "</tr>";
